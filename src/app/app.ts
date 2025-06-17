@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RovancsBase } from "./rovancs-base";
 
 @Component({
   selector: 'app-root',

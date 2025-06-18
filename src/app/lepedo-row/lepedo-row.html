@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <div class="row fw border-bottom py-2">
+    <div class="col-1"><input type="text" class="form-control" formControlName="name"></div>
+    <div class="col-1"><input type="text" class="form-control" formControlName="cashier"></div>
+    <div class="col-1 text-center"><input type="number" class="form-control" formControlName="skim"></div>
+    <div class="col-1 text-center"><input type="number" class="form-control" formControlName="euro"></div>
+    <div class="col-2 text-center"><input type="number" class="form-control" formControlName=sum></div>
+    <div class="col-1 text-center"><label>{{subtracted()}}</label></div>
+    <div class="col-1 text-center"><input type="number" class="form-control" formControlName=card></div>
+    <div class="col-1 text-center"><input type="number" class="form-control" formControlName=coupon></div>
+    <div class="col-1 text-center"><input type="number" class="form-control" formControlName=total></div>
+    <div class="col-1 text-center"><label>{{diff()}}</label></div>
+    <div class="col-1 text-center"><input class="btn btn-success" type="button" value="Add" (click)="add()" /></div>
+  </div>
+</form>
+

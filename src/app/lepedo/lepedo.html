@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <!-- Table Header -->
+  <div class="row fw-bold border-bottom py-2">
+    <div class="col-1 text-center">Név</div>
+    <div class="col-1 text-center">Kassza</div>
+    <div class="col-1 text-center">Skim</div>
+    <div class="col-1 text-center">&#8364;</div>
+    <div class="col-2 text-center">Összesen</div>
+    <div class="col-1 text-center">Levonásokkal</div>
+    <div class="col-1 text-center">Kártya</div>
+    <div class="col-1 text-center">Utalvány</div>
+    <div class="col-1 text-center">Total Gross</div>
+    <div class="col-1 text-center">+/-</div>
+  </div>
+
+  <app-lepedo-row [eurohuf]=350 (valuesEvent)=addOrUpdate($event)></app-lepedo-row>
+  @for(value of valuesSig(); track value.cashier) {
+    <app-lepedo-row [eurohuf]=350 (valuesEvent)=addOrUpdate($event)></app-lepedo-row>
+  }
+
+  <!-- Table Footer (Totals, etc.) -->
+  <div class="row fw-bold py-2 border-top border-bottom border-2">
+    <div class="col-2 text-start">&#8721;</div>
+    <div class="col-1 text-center">Skim</div>
+    <div class="col-1 text-center">&#8364;</div>
+    <div class="col-2 text-center">Összesen</div>
+    <div class="col-1 text-center">Levonásokkal</div>
+    <div class="col-1 text-center">Kártya</div>
+    <div class="col-1 text-center">Utalvány</div>
+    <div class="col-1 text-center">Total Gross</div>
+    <div class="col-1 text-center">+/-</div>
+  </div>
+</div>

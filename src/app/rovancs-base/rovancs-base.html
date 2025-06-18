@@ -10,5 +10,7 @@
       <app-denom [value]=denom.value [size]=denom.size (sumEvent)=calculateSum($event)></app-denom>
     }
   </div>
-
+  <div class="row">
+    <div class="col-12 display-6 text-center">Összesen: {{sum()}} Ft</div>
+  </div>
 </div>

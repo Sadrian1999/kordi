@@ -1,0 +1,8 @@
+<form class="form-group" [formGroup]=form>
+  <div class="row p-2 text-center">
+      <div class="col-3"><label class="form-label">{{value()}} Ft</label></div>
+      <div class="col-3"><input type="number" class="form-control" formControlName="roll" min=0></div>
+      <div class="col-3"><input type="number" class="form-control" formControlName="db"min=0></div>
+      <div class="col-3"><label class="form-label">{{sumSig()}} Ft</label></div>
+  </div>
+</form>

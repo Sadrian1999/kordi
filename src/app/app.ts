@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RovancsBase } from "./rovancs-base";
+import { RovancsBase } from "./rovancs-base/rovancs-base";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RovancsBase],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

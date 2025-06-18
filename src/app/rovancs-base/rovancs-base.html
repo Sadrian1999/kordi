@@ -1,1 +1,14 @@
-<p>rovancs-base works!</p>
+<div class="container-fluid">
+  <div class="row fw-bold border-bottom py-2 text-center">
+    <div class="col-3">Címlet</div>
+    <div class="col-3">Rolni</div>
+    <div class="col-3">Db</div>
+    <div class="col-3">Összeg</div>
+  </div>
+  <div>
+    @for(denom of denominations.slice().reverse(); track denom.value){
+      <app-denom [value]=denom.value [size]=denom.size (sumEvent)=calculateSum($event)></app-denom>
+    }
+  </div>
+
+</div>

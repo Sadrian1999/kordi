@@ -21,13 +21,90 @@
   <!-- Table Footer (Totals, etc.) -->
   <div class="row fw-bold py-2 border-top border-bottom border-2">
     <div class="col-2 text-start">&#8721;</div>
-    <div class="col-1 text-center">Skim</div>
-    <div class="col-1 text-center">&#8364;</div>
-    <div class="col-2 text-center">Összesen</div>
-    <div class="col-1 text-center">Levonásokkal</div>
-    <div class="col-1 text-center">Kártya</div>
-    <div class="col-1 text-center">Utalvány</div>
-    <div class="col-1 text-center">Total Gross</div>
-    <div class="col-1 text-center">+/-</div>
+    <div class="col-1 text-center">{{totalsSig()['skim']}} Ft</div>
+    <div class="col-1 text-center">{{(totalsSig()['euroHuf']) / 350}}&#8364;</div>
+    <div class="col-2 text-center">{{totalsSig()['sum']}} Ft</div>
+    <div class="col-1 text-center">{{totalsSig()['subtracted']}} Ft</div>
+    <div class="col-1 text-center">{{totalsSig()['card']}} Ft</div>
+    <div class="col-1 text-center">{{totalsSig()['coupon']}} Ft</div>
+    <div class="col-1 text-center">{{totalsSig()['total']}} Ft</div>
+    <div class="col-1 text-center">{{totalsSig()['diff']}} Ft</div>
   </div>
 </div>
+
+<!-- In your template -->
+<form [formGroup]="form">
+  <div class="container-fluid">
+    <div class="row g-3">
+      <!-- PC Out -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="pcOut" class="form-label">PC Out</label>
+        <input
+          id="pcOut"
+          type="number"
+          class="form-control"
+          formControlName="pcOut">
+      </div>
+
+      <!-- Bill -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="bill" class="form-label">Bill</label>
+        <input
+          id="bill"
+          type="number"
+          class="form-control"
+          formControlName="bill">
+      </div>
+
+      <!-- Order -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="order" class="form-label">Order</label>
+        <input
+          id="order"
+          type="number"
+          class="form-control"
+          formControlName="order">
+      </div>
+
+      <!-- Previous Day -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="previousDay" class="form-label">Previous Day</label>
+        <input
+          id="previousDay"
+          type="number"
+          class="form-control"
+          formControlName="previousDay">
+      </div>
+
+      <!-- PC In -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="pcIn" class="form-label">PC In</label>
+        <input
+          id="pcIn"
+          type="number"
+          class="form-control"
+          formControlName="pcIn">
+      </div>
+
+      <!-- Skim -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="skim" class="form-label">Skim</label>
+        <input
+          id="skim"
+          type="number"
+          class="form-control"
+          formControlName="skim">
+      </div>
+
+      <!-- Change -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <label for="change" class="form-label">Change</label>
+        <input
+          id="change"
+          type="number"
+          class="form-control"
+          formControlName="change">
+      </div>
+    </div>
+  </div>
+</form>

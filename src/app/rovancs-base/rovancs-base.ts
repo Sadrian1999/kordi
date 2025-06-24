@@ -1,6 +1,7 @@
-import { Component, effect, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, signal, WritableSignal } from '@angular/core';
 import { Denom } from '../denom/denom';
 import { DenomType, Response } from '../denom/denom-type';
+import { DataService } from '../data-service';
 
 @Component({
   selector: 'app-rovancs-base',
@@ -28,12 +29,8 @@ export class RovancsBase {
 
   sum = signal<number>(0);
   responses = signal<Response[]>([]);
+  dataService = inject(DataService);
 
-  constructor(){
-    effect(() => {
-      console.log(this.sum())
-    });
-  }
   calculateSum(response: Response) {
     let new_sum = 0;
     this.responses.update(arr => {
@@ -52,5 +49,8 @@ export class RovancsBase {
     })
 
     this.sum.update(n => n = new_sum)
+
+    this.dataService.safeSig.set(this.responses());
+    this.dataService.sumSig.set(this.sum());
   }
 }

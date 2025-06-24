@@ -18,7 +18,6 @@
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            href="#"
             id="servicesDropdown"
             role="button"
             data-bs-toggle="dropdown"
@@ -26,10 +25,10 @@
             Rovancs
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="servicesDropdown">
-            <li><a class="dropdown-item" href="#">Széf</a></li>
-            <li><a class="dropdown-item" href="#">Lepedő</a></li>
+            <li><a class="dropdown-item" routerLink='/szef'>Széf</a></li>
+            <li><a class="dropdown-item" routerLink='/lepedo'>Lepedő</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">PC</a></li>
+            <li><a class="dropdown-item" routerLink='/szamitas'>Számítás</a></li>
           </ul>
         </li>
 
@@ -38,17 +37,26 @@
             class="nav-link"
             routerLink="/szemfogy"
             routerLinkActive="active"
-          >
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
             Szemfogy
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/expiring-list" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            Lejáratok
+          </a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" routerLink="/olvado" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+           Olvadó
+          </a>
+        </li>
+
+
       </ul>
     </div>
   </div>
 </nav>
 
-<app-lepedo></app-lepedo>
-
-
 <router-outlet />
-

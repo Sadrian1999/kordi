@@ -14,10 +14,10 @@ export class Denom {
   value = input<number>(0);
   size = input<number>(0);
 
-    sumEvent = output<Response>();
+  sumEvent = output<Response>();
 
-  db: FormControl = new FormControl<number|null>(null);
-  roll: FormControl = new FormControl<number|null>(null, { nonNullable: true });
+  db: FormControl = new FormControl<number>(0, {nonNullable: true});
+  roll: FormControl = new FormControl<number>(0, { nonNullable: true });
   dbSig = toSignal(this.db.valueChanges, { initialValue: 0});
   rollSig = toSignal(this.roll.valueChanges, { initialValue: 0});
   form = new FormGroup({ db: this.db, roll: this.roll });
@@ -30,6 +30,7 @@ export class Denom {
       this.sumEvent.emit(
         {
           value: this.value(),
+          count: this.dbSig() + this.rollSig() * this.size(),
           sum: this.sumSig()
         }
       )

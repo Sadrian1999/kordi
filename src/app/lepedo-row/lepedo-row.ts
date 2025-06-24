@@ -51,8 +51,7 @@ export class LepedoRow {
     return s + sk + e * eh - 50000;
   });
 
-  diff = computed(() => (this.totalSig() ?? 0) - this.subtracted());
-
+  diff = computed(() => (this.subtracted() - (this.totalSig() ?? 0)));
 
   add(){
     const e = this.euroSig() ?? 0

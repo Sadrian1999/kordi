@@ -10,6 +10,7 @@ export class DenomType{
 
 export type Response = {
     value: number;
+    count: number;
     sum: number;
   };
 

@@ -13,18 +13,18 @@ import { DataService } from '../data-service';
 
 export class RovancsBase {
   denominations = [
-    new DenomType(5, 50),
-    new DenomType(10, 50),
-    new DenomType(20, 50),
-    new DenomType(50, 50),
-    new DenomType(100, 20),
-    new DenomType(200, 40),
-    new DenomType(500, 0),
-    new DenomType(1000, 0),
-    new DenomType(2000, 0),
-    new DenomType(5000, 0),
-    new DenomType(10000, 0),
     new DenomType(20000, 0),
+    new DenomType(10000, 0),
+    new DenomType(5000, 0),
+    new DenomType(2000, 0),
+    new DenomType(1000, 0),
+    new DenomType(500, 0),
+    new DenomType(200, 40),
+    new DenomType(100, 20),
+    new DenomType(50, 50),
+    new DenomType(20, 50),
+    new DenomType(10, 50),
+    new DenomType(5, 50),
   ];
 
   sum = signal<number>(0);

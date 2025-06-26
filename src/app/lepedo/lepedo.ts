@@ -15,7 +15,7 @@ export class Lepedo {
   valuesSig = signal<Values[]>([]);
   dataService = inject(DataService);
 
-  pcOut = new FormControl<number>(0);
+  pcOut = new FormControl<number>(this.dataService.pcOutSig());
   bill = new FormControl<number>(0);
   order = new FormControl<number>(0);
   previousDay = new FormControl<number>(0);

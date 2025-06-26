@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { OlvadoRow } from '../olvado-row/olvado-row';
 import { OlvadoType } from './olvado-row-type';
 
@@ -9,6 +9,11 @@ import { OlvadoType } from './olvado-row-type';
   styleUrl: './olvado.scss'
 })
 export class Olvado {
-  rows: OlvadoType[] = [];
+  rowsSig = signal<OlvadoType[]>([]);
+
+  add(value: OlvadoType) {
+    this.rowsSig.update(rows => [...rows, value]);
+  }
+
 
 }

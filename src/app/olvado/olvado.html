@@ -1,17 +1,24 @@
 <div class="container-fluid">
   <!-- Fejléc sor -->
   <div class="row bg-light border-bottom fw-bold py-2">
-    <div class="col">Alapanyag</div>
-    <div class="col">Kint van</div>
-    <div class="col">Kell még</div>
-    <div class="col">Kivéve</div>
-    <div class="col">Db/Egység</div>
-    <div class="col">Tegnap</div>
-    <div class="col">Múlthét holnaphoz képest</div>
-    <div class="col">Ma</div>
-    <div class="col">Egy hete</div>
+    <div class="col text-center">Alapanyag</div>
+    <div class="col text-center">Kint van</div>
+    <div class="col text-center">Kell még</div>
+    <div class="col text-center">Db/Egység</div>
+    <div class="col text-center">Tegnap</div>
+    <div class="col text-center">Múlthét holnaphoz képest</div>
+    <div class="col text-center">Ma</div>
+    <div class="col text-center">Egy hete</div>
+    <div class="col text-center">Hozzáadás</div>
   </div>
 
   <!-- Adatsorok -->
-  <app-olvado-row></app-olvado-row>
+  <app-olvado-row (addEvent)=add($event)/>
+  @for(row of rowsSig();track row.name) {
+    <app-olvado-row (addEvent)=add($event)/>
+  }
+
+
 </div>
+
+

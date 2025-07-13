@@ -6,11 +6,27 @@
     <div class="col-3">Összeg</div>
   </div>
   <div>
-    @for(denom of denominations.slice().reverse(); track denom.value){
-      <app-denom [value]=denom.value [size]=denom.size (sumEvent)=calculateSum($event)></app-denom>
+    @for(denom of denominations().slice().reverse(); track denom.baseValue){
+      <app-denom
+      id="asd"
+      [moneyBaseValue]=denom.baseValue
+      [rollSize]=denom.rollSize
+      (sumEvent)=calculateSum($event)>
+
+      </app-denom>
     }
   </div>
   <div class="row">
     <div class="col-12 display-6 text-center">Összesen: {{sum()}} Ft</div>
+  </div>
+  <div class="row p-2">
+    <app-lepedo (outEvent)=getSheet($event)></app-lepedo>
+  </div>
+  <div class="row">
+  <app-calculations
+    [strongBoxData]=strongBoxValues()
+    [sumSig]=sum()
+    [sheetData]=sheetData()>
+  </app-calculations>
   </div>
 </div>

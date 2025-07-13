@@ -1,42 +1,86 @@
-import { Component, effect, inject, signal, WritableSignal } from '@angular/core';
+import { Component, effect, output, signal } from '@angular/core';
 import { Denom } from '../denom/denom';
-import { DenomType, Response } from '../denom/denom-type';
-import { DataService } from '../data-service';
+import { Money } from '../denom/denom-type';
+import { SheetValues, StrongBoxValues } from '../data-service';
+import { Lepedo } from '../lepedo/lepedo';
+import { Calculations } from '../calculations/calculations';
 
 @Component({
   selector: 'app-rovancs-base',
   standalone: true,
-  imports: [Denom],
+  imports: [Denom, Lepedo, Calculations],
   templateUrl: './rovancs-base.html',
-  styleUrls: ['./rovancs-base.scss']
+  styleUrls: ['./rovancs-base.scss'],
 })
-
 export class RovancsBase {
-  denominations = [
-    new DenomType(20000, 0),
-    new DenomType(10000, 0),
-    new DenomType(5000, 0),
-    new DenomType(2000, 0),
-    new DenomType(1000, 0),
-    new DenomType(500, 0),
-    new DenomType(200, 40),
-    new DenomType(100, 20),
-    new DenomType(50, 50),
-    new DenomType(20, 50),
-    new DenomType(10, 50),
-    new DenomType(5, 50),
-  ];
+  denominations = signal<Money[]>([
+    new Money(20000),
+    new Money(10000),
+    new Money(5000),
+    new Money(2000),
+    new Money(1000),
+    new Money(500),
+    new Money(200, 40),
+    new Money(100, 20),
+    new Money(50, 50),
+    new Money(20, 50),
+    new Money(10, 50),
+    new Money(5, 50),
+  ]);
+
+  sendStrongboxValuesEvent = output<StrongBoxValues>();
 
   sum = signal<number>(0);
-  responses = signal<Response[]>([]);
-  dataService = inject(DataService);
+  responses = signal<Money[]>([]);
+  strongBoxValues = signal<StrongBoxValues>({
+    m5: this.denominations()[0],
+    m10: this.denominations()[1],
+    m20: this.denominations()[2],
+    m50: this.denominations()[3],
+    m100: this.denominations()[4],
+    m200: this.denominations()[5],
+    m500: this.denominations()[6],
+    m1k: this.denominations()[7],
+    m2k: this.denominations()[8],
+    m5k: this.denominations()[9],
+    m10k: this.denominations()[10],
+    m20k: this.denominations()[11],
+  });
 
-  calculateSum(response: Response) {
+  sheetData = signal<SheetValues>({
+    cassaTotal: 0,
+    coupon: 0,
+    card: 0,
+    pcOut: 0,
+    bill: 0,
+    order: 0,
+    prevDay: 0,
+    pcIn: 0,
+    skim: 0,
+    change: 0,
+    sheet: 0,
+    euro: 0,
+  });
+
+  /**
+   *
+   */
+  constructor() {
+    effect(() => {
+      this.sendStrongboxValuesEvent.emit(this.strongBoxValues());
+    });
+  }
+
+  getSheet(sheetData: SheetValues) {
+    this.sheetData.set(sheetData);
+  }
+
+  calculateSum(response: Money) {
     let new_sum = 0;
-    this.responses.update(arr => {
+    this.responses.update((arr) => {
       for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
-        if (element.value === response.value) {
+        if (element.baseValue === response.baseValue) {
           arr[i] = response;
           return arr;
         }
@@ -44,13 +88,24 @@ export class RovancsBase {
       return [...arr, response];
     });
 
-    this.responses().forEach(element => {
-      new_sum += element.sum;
-    })
+    this.responses().forEach((element) => {
+      new_sum += element.sum!;
+    });
 
-    this.sum.update(n => n = new_sum)
-
-    this.dataService.safeSig.set(this.responses());
-    this.dataService.sumSig.set(this.sum());
+    this.sum.update((n) => (n = new_sum));
+    this.strongBoxValues.set({
+      m5: this.responses()[0],
+      m10: this.responses()[1],
+      m20: this.responses()[2],
+      m50: this.responses()[3],
+      m100: this.responses()[4],
+      m200: this.responses()[5],
+      m500: this.responses()[6],
+      m1k: this.responses()[7],
+      m2k: this.responses()[8],
+      m5k: this.responses()[9],
+      m10k: this.responses()[10],
+      m20k: this.responses()[11],
+    });
   }
 }

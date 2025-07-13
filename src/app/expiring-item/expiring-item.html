@@ -1,38 +1,43 @@
-  <!-- Row 1: Item name + Count -->
-  <div class="row gx-2 px-3 pt-2">
-    <div class="col-8">
-      <input
-        type="text"
-        class="form-control"
-        id="itemName"
-        name="itemName"
-        placeholder="Item name"
-      />
-    </div>
-    <div class="col-4">
-      <input
-        type="number"
-        class="form-control"
-        id="itemCount"
-        name="itemCount"
-        min="0"
-        step="1"
-        placeholder="Count"
-      />
-    </div>
+<!-- Row 1: Item name + Count -->
+<div class="row gx-2 px-3 pt-2">
+  <div class="col-8">
+    <input
+      type="text"
+      class="form-control"
+      id="itemName"
+      name="itemName"
+      placeholder="Item name"
+    />
   </div>
+  <div class="col-4">
+    <input
+      type="number"
+      class="form-control"
+      id="itemCount"
+      name="itemCount"
+      min="0"
+      step="1"
+      placeholder="Count"
+    />
+  </div>
+</div>
 
-  <!-- Row 2: Date & Time + Add button, with a border-top -->
-  <div class="row gx-2 px-3 pt-2 pb-2 border-bottom">
-    <div class="col-8">
-      <input
-        type="datetime-local"
-        class="form-control"
-        id="itemDateTime"
-        name="itemDateTime"
-      />
-    </div>
-    <div class="col-4">
-      <input type="button" class="btn btn-info w-100" (click)="increment()" value="Add"/>
-    </div>
+<!-- Row 2: Date & Time + Add button, with a border-top -->
+<div class="row gx-2 px-3 pt-2 pb-2 border-bottom">
+  <div class="col-8">
+    <input
+      type="datetime-local"
+      class="form-control"
+      id="itemDateTime"
+      name="itemDateTime"
+    />
   </div>
+  <div class="col-4">
+    <input
+      type="button"
+      class="btn btn-info w-100"
+      (click)="increment()"
+      value="Add"
+    />
+  </div>
+</div>

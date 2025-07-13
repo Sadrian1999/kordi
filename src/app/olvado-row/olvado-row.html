@@ -1,46 +1,68 @@
-<form [formGroup]=form>
-<div class="row bg-light border-bottom fw-bold py-2">  <!-- Alapanyag -->
-  <div class="col">
-    <input class="form-control" formControlName="name">
-  </div>
+<form [formGroup]="form">
+  <div class="row bg-light border-bottom fw-bold py-2">
+    <!-- Alapanyag -->
+    <div class="col">
+      <input class="form-control" formControlName="name" />
+    </div>
 
-  <!-- Kint van -->
-  <div class="col d-flex align-items-center">
-    <input type="number" class="form-control" formControlName="db">
-  </div>
+    <!-- Kint van -->
+    <div class="col d-flex align-items-center">
+      <input type="number" class="form-control" formControlName="db" />
+    </div>
 
-  <!-- Kell még -->
-  <div class="col text-center">
+    <!-- Kell még -->
+    <div class="col text-center">
       <label class="form-label">{{neededSig()}}</label>
-  </div>
+    </div>
 
-  <!-- Db/Egység -->
-  <div class="col">
-    <input type="number" class="form-control" formControlName="dbPerContainer">
-  </div>
+    <!-- Db/Egység -->
+    <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="dbPerContainer"
+      />
+    </div>
 
-  <!-- Tegnap -->
-  <div class="col">
-    <input type="number" class="form-control" formControlName="yesterdaySold">
-  </div>
+    <!-- Tegnap -->
+    <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="yesterdaySold"
+      />
+    </div>
 
-  <!-- Múlt hét -->
-  <div class="col">
-    <input type="number" class="form-control" formControlName="lastWeekTommorowSold">
-  </div>
+    <!-- Múlt hét -->
+    <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="lastWeekTommorowSold"
+      />
+    </div>
 
-  <!-- Ma -->
-  <div class="col">
-    <input type="number" class="form-control" formControlName="todaySold">
-  </div>
+    <!-- Ma -->
+    <div class="col">
+      <input type="number" class="form-control" formControlName="todaySold" />
+    </div>
 
-  <!-- Egy hete -->
-  <div class="col">
-    <input type="number" class="form-control" formControlName="lastWeekTodaySold">
-  </div>
+    <!-- Egy hete -->
+    <div class="col">
+      <input
+        type="number"
+        class="form-control"
+        formControlName="lastWeekTodaySold"
+      />
+    </div>
 
-  <div class="col text-center">
-    <input type="button" value="Új sor" class="btn btn-primary" (click)=add()>
+    <div class="col text-center">
+      <input
+        type="button"
+        value="Új sor"
+        class="btn btn-primary"
+        (click)="add()"
+      />
+    </div>
   </div>
-</div>
 </form>

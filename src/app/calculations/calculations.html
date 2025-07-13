@@ -1,5 +1,5 @@
-
-<div class="container my-4">
+<div class="container my-4 min-vh-100">
+  <div class="display-3 text-center">Számítás</div>
   <!-- Header Row -->
   <div class="row bg-dark text-white py-2 fw-bold">
     <div class="col-12 text-center">Rovancs</div>
@@ -8,98 +8,101 @@
   <!-- Data Row -->
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">20 000 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db20k']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db20k']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m20k.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m20k.sum}} Ft</div>
     <div class="col-3 text-start">Kasszák</div>
-    <div class="col-3 text-start">500 000 Ft</div>
-
+    <div class="col-3 text-start">{{sheetData().cassaTotal}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">10 000 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db10k']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db10k']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m10k.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m10k.sum}} Ft</div>
     <div class="col-3 text-start">Utalvány</div>
-    <div class="col-3 text-start">{{valuesSig()['coupon']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().coupon}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">5 000 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db5k']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db5k']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m5k.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m5k.sum}} Ft</div>
     <div class="col-3 text-start">Bankkártya</div>
-    <div class="col-3 text-start">{{valuesSig()['card']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().card}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">2 000 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db2k']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db2k']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m2k.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m2k.sum}} Ft</div>
     <div class="col-3 text-start">PC Kiadás</div>
-    <div class="col-3 text-start">{{valuesSig()['pcOut']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().pcOut}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">1 000 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db1k']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db1k']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m1k.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m1k.sum}} Ft</div>
     <div class="col-3 text-start">Csekkfeladás</div>
-    <div class="col-3 text-start">{{valuesSig()['bill']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().bill}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">500 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db500']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db500']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m500.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m500.sum}} Ft</div>
     <div class="col-3 text-start">Aprórendelés</div>
-    <div class="col-3 text-start">{{valuesSig()['order']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().order}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">200 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db200']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db200']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m200.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m200.sum}} Ft</div>
     <div class="col-3 text-start fw-bold">Összesen</div>
     <div class="col-3 text-start fw-bold">{{subSumSig()}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">100 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db100']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db100']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m100.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m100.sum}} Ft</div>
     <div class="col-3 text-start">Előző napi maradék</div>
-    <div class="col-3 text-start">{{valuesSig()['prevDay']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().prevDay}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">50 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db50']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db50']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m50.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m50.sum}} Ft</div>
     <div class="col-3 text-start">PC Bevétel</div>
-    <div class="col-3 text-start">{{valuesSig()['pcIn']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().pcIn}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">20 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db20']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db20']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m20.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m20.sum}} Ft</div>
     <div class="col-3 text-start">Skim</div>
-    <div class="col-3 text-start">{{valuesSig()['skim']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().skim}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">10 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db10']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db10']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m10.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m10.sum}} Ft</div>
     <div class="col-3 text-start">Váltó kiszállítás</div>
-    <div class="col-3 text-start">{{valuesSig()['changeOut']}} Ft</div>
+    <div class="col-3 text-start">{{sheetData().change}} Ft</div>
   </div>
   <div class="row border-bottom py-2">
     <div class="col-2 text-start">5 Ft</div>
-    <div class="col-2 text-start">{{valuesSig()['db5']['count']}} db</div>
-    <div class="col-2 text-start">{{valuesSig()['db5']['sum']}} Ft</div>
+    <div class="col-2 text-start">{{strongBoxData().m5.db}} db</div>
+    <div class="col-2 text-start">{{strongBoxData().m5.sum}} Ft</div>
     <div class="col-3 text-start">Lepedő</div>
-    <div class="col-3 text-start">{{valuesSig()['lepedo']}} Ft</div>
+    <div class="col-3 text-start">
+      {{sheetData().sheet - sheetData().euro}} Ft
+    </div>
   </div>
   <div class="row fw-vold border-bottom py-2">
     <div class="col-4 text-start fw-bold">Összesen:</div>
-    <div class="col-2 text-start fw-bold">{{valuesSig()['sum']}}Ft</div>
+    <div class="col-2 text-start fw-bold">{{sumSig()}}Ft</div>
     <div class="col-3 text-start fw-bold">Eltérés</div>
     <div
       class="col-3 text-start fw-bold"
       [class.text-success]="finalDiffSig() === 0"
       [class.text-danger]="finalDiffSig() < 0"
       [class.text-warning]="finalDiffSig() > 0"
-    >{{finalDiffSig()}} Ft</div>
+    >
+      {{finalDiffSig()}} Ft
+    </div>
   </div>
 </div>
